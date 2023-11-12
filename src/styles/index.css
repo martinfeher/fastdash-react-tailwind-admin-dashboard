@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    font-family: 'Poppins', Roboto, Helvetica;
+}
+h1 {
+    font-size: 25px;
+}
+h2 {
+    font-size: 22px;
+}
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 19px;
+}
+h5 {
+    font-size: 18px;
+}
+
+.toggle-switch:checked {
+    @apply: right-0 border-green-400;
+    right: 0;
+    border-color: #303c34;
+  }
+.toggle-switch:checked + .toggle-label {
+    @apply: bg-green-400;
+    background-color: #303c34;
+}
