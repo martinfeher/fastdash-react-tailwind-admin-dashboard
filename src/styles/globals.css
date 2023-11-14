@@ -671,6 +671,10 @@ video {
   margin-bottom: 10px;
 }
 
+.mb-\[16px\] {
+  margin-bottom: 16px;
+}
+
 .mb-\[2px\] {
   margin-bottom: 2px;
 }
@@ -845,34 +849,6 @@ video {
 
 .mt-\[9px\] {
   margin-top: 9px;
-}
-
-.mb-\[\] {
-  margin-bottom: ;
-}
-
-.mb-\[2\] {
-  margin-bottom: 2;
-}
-
-.mb-\[20\] {
-  margin-bottom: 20;
-}
-
-.mb-\[20px\] {
-  margin-bottom: 20px;
-}
-
-.mb-\[px\] {
-  margin-bottom: px;
-}
-
-.mb-\[1px\] {
-  margin-bottom: 1px;
-}
-
-.mb-\[16px\] {
-  margin-bottom: 16px;
 }
 
 .block {

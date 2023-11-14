@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import AdminLayout from "../layout/AdminLayout";
@@ -13,11 +13,21 @@ const Calendar = ({setOpenCalendarEventModal, global: {darkMode, calendarEventMo
 
 
 const [displayCalendarEvent, setDisplayCalendarEvent] = useState(null);
+
+const [events, setEvents] = useState([]);
+
+
+useEffect(() => {
+
+  console.log('calendarEvents && calendarEvents')
+  console.log(calendarEvents && calendarEvents)
+  setEvents(calendarEvents && calendarEvents)
+  
+}, [calendarEvents]);
   
  const handleEventClick = (e) => {
 
   let eventVal = e.event
- 
   console.log(eventVal)
     setDisplayCalendarEvent(e.event)
     setOpenCalendarEventModal(true)
@@ -35,6 +45,7 @@ const [displayCalendarEvent, setDisplayCalendarEvent] = useState(null);
               <FullCalendar
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
+                // events={events}
                 events={calendarEvents}
                 eventClick={handleEventClick}
               />
