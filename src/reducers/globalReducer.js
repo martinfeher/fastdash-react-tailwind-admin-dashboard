@@ -3,6 +3,7 @@ import {
   SET_OPEN_WEBSITE_SEARCH,
   SET_OPEN_SIDEBAR_MENU,
   SET_OPEN_CALENDAR_EVENT_MODAL,
+  SET_CALENDAR_EVENTS,
   SET_DARK_MODE,
   DATA_ERROR,
 } from "../actions/types";
@@ -27,6 +28,12 @@ const initialState = {
   searchItems: [],
   darkMode: false,
   // darkMode: true,
+  calendarEvents: [
+    { title: 'event 1', date: '2023-11-01', description: 'Lorem ipsum' },
+    { title: 'event 2', start: '2023-11-12 08:15:00', end: '2023-11-12 08:45:00'},
+    { title: 'event 3', start: '2023-11-12 15:30:00' },
+    { title: 'event 4', start: '2023-11-15', end: '2023-11-18' }
+  ]
 };
 
 const globalReducer = (state = initialState, action) => {
@@ -76,12 +83,25 @@ const globalReducer = (state = initialState, action) => {
 
     case SET_OPEN_CALENDAR_EVENT_MODAL:
 
-      // let calendarEventModalOpen = action.calendarEventModalOpen
+      let calendarEventModalOpen = action.calendarEventModalOpen
   
         return {
           ...state,
-          darkMode: action.calendarEventModalOpen,
+          calendarEventModalOpen: calendarEventModalOpen,
         };
+
+    case SET_CALENDAR_EVENTS:
+
+      let calendarEventsNew = action.calendarEventsNew
+
+      console.log('calendarEventsNew')
+      console.log(calendarEventsNew)
+  
+        return {
+          ...state,
+          calendarEvents: calendarEventsNew,
+        };
+        
 
     case SET_DARK_MODE:
 

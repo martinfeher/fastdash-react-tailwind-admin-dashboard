@@ -1,25 +1,45 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
 import useWindowDimensions from "../utils/useWindowDimensions";
 import {
   setOpenCalendarEventModal,
+  setCalendarEvents,
 } from "../../actions/globalAction";
 
-const ModalCalendarEvent = ({ setOpenCalendarEventModal }) => {
+const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, setCalendarEvents, global:{darkMode, calendarEvents} }) => {
 
     const calendarEventModalRef = useRef(null)
     const { height, width } = useWindowDimensions()
+
+
+    const [title, setTitle] = useState(displayCalendarEvent.title);
 
     // useEffect(() => {
     //     searchInputRef.current.select()
     // }, []);
 
-  // const handleKeyDown = useCallback((e) => {
-  //   if (e.keyCode === 27) {   // press Escape
-  //     setOpenWebsiteSearch(false);
-  //   }
-  // });
+  const handleKeyDown = useCallback((e) => {
+    if (e.keyCode === 27) {   // press Escape
+      setOpenCalendarEventModal(false);
+    }
+  });
+
+
+  const handleEventChange = (e) => {
+
+    let calendarEventsNew = calendarEvents.map((item, index) => {
+      if ( item.title === title) {
+        item.title = e.target.value
+      }
+      return item
+    })
+    
+    console.log(calendarEventsNew)
+    setTitle(e.target.value)
+
+    setCalendarEvents(calendarEventsNew)
+  }
     
 
   return (
@@ -39,7 +59,23 @@ const ModalCalendarEvent = ({ setOpenCalendarEventModal }) => {
           <MdClose size={11} className="text-gray-500 dark:text-gray-300 group-hover:sky-100 dark:group-hover:sky-300" />
         </div>
         <div className="mt-[20px] w-full">
-         cal event modal
+          { displayCalendarEvent !== null && (
+              <div>
+                <div className="mb-[16px]">Edit event</div>
+                <div>
+                  <input type="text" 
+                    value={title}
+                    name='title'
+                    onChange={handleEventChange}
+                  />
+                </div>
+                <div>{displayCalendarEvent?.extendedProps?.description}</div>
+                <div>{displayCalendarEvent?.startStr}</div>
+                <div>{displayCalendarEvent?.endStr}</div>
+                <div>{displayCalendarEvent?.allDay && 'all day'}</div>
+                <div>{displayCalendarEvent?.id}</div>
+              </div>
+            )}
         </div>
       </div>
     </div>
@@ -52,4 +88,5 @@ const mapStateToProps = (state) => ({
   
   export default connect(mapStateToProps, {
     setOpenCalendarEventModal,
+    setCalendarEvents,
   })(ModalCalendarEvent);
