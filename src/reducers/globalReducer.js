@@ -2,6 +2,7 @@ import {
   SET_WEBSITE_SEARCH_TEXT,
   SET_OPEN_WEBSITE_SEARCH,
   SET_OPEN_SIDEBAR_MENU,
+  SET_OPEN_CALENDAR_EVENT_MODAL,
   SET_DARK_MODE,
   DATA_ERROR,
 } from "../actions/types";
@@ -10,6 +11,7 @@ const initialState = {
   sidebarMenuOpen: true,
   sidebarMenuManualClose: false,
   websiteSearchOpen: false,
+  calendarEventModalOpen: false,
   websiteSearchText: '',
   availableSearchItems: [
     { name: 'Analytics', link: '/'},
@@ -70,6 +72,16 @@ const globalReducer = (state = initialState, action) => {
         sidebarMenuOpen: sidebarMenuOpen,
         sidebarMenuManualClose: sidebarMenuManualClose,
       };
+
+
+    case SET_OPEN_CALENDAR_EVENT_MODAL:
+
+      // let calendarEventModalOpen = action.calendarEventModalOpen
+  
+        return {
+          ...state,
+          darkMode: action.calendarEventModalOpen,
+        };
 
     case SET_DARK_MODE:
 

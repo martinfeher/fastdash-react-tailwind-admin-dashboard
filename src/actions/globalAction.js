@@ -1,7 +1,9 @@
+import { C, cC, co } from "@fullcalendar/core/internal-common";
 import {
   SET_WEBSITE_SEARCH_TEXT,
   SET_OPEN_WEBSITE_SEARCH,
   SET_OPEN_SIDEBAR_MENU,
+  SET_OPEN_CALENDAR_EVENT_MODAL,
   SET_DARK_MODE,
   DATA_ERROR,
 
@@ -51,6 +53,24 @@ export const setOpenSidebarMenu = (sidebarMenuOpen, sidebarMenuManualClose=true)
       payload: err.response,
     });
   }
+};
+
+
+export const setOpenCalendarEventModal = (calendarEventModalOpen) => async (dispatch) => {
+
+  // console.log(calendarEventModalOpen)
+  // console.log(calendarEventModalOpen)
+  // try {
+    dispatch({
+      type: SET_OPEN_CALENDAR_EVENT_MODAL,
+      calendarEventModalOpen: calendarEventModalOpen,
+    });
+  // } catch (err) {
+  //   dispatch({
+  //     type: DATA_ERROR,
+  //     payload: err.response,
+  //   });
+  // }
 };
 
 export const setDarkMode = (darkMode) => async (dispatch) => {
