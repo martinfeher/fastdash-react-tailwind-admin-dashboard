@@ -172,6 +172,24 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
 
           <div className="w-full flex items-center">
             <NavLink
+              to={"/calendar"}
+              className={({ isActive }) =>
+                (isActive
+                  ? "text-black bg-blue-100 dark:bg-slate-600"
+                  : "hover:bg-slate-150 dark:hover:bg-slate-700") + " w-full h-[38px] lg:h-[35px] flex items-center px-2 rounded-[5px]"
+              }
+            >
+              <div className="w-full flex">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+              </svg>
+                <div className="ml-3 dark:text-gray-300">Calendar</div>
+              </div>
+            </NavLink>
+          </div>
+
+          <div className="w-full flex items-center">
+            <NavLink
               to={"/buttons"}
               className={({ isActive }) =>
                 (isActive
