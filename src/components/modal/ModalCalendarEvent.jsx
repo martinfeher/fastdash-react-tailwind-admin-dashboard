@@ -2,6 +2,10 @@ import { useState, useRef, useCallback } from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
 import useWindowDimensions from "../utils/useWindowDimensions";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
 import {
   setOpenCalendarEventModal,
   setCalendarEvents,
@@ -12,8 +16,8 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
     const calendarEventModalRef = useRef(null)
     const { height, width } = useWindowDimensions()
 
-
     const [title, setTitle] = useState(displayCalendarEvent.title);
+    const [description, setDescription] = useState(displayCalendarEvent?.extendedProps?.description);
 
     // useEffect(() => {
     //     searchInputRef.current.select()
@@ -56,26 +60,70 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
             setOpenCalendarEventModal(false);
           }}
         >
-          <MdClose size={11} className="text-gray-500 dark:text-gray-300 group-hover:sky-100 dark:group-hover:sky-300" />
+          <MdClose
+            size={11}
+            className="text-gray-500 dark:text-gray-300 group-hover:sky-100 dark:group-hover:sky-300"
+          />
         </div>
         <div className="mt-[20px] w-full">
-          { displayCalendarEvent !== null && (
-              <div>
-                <div className="mb-[16px]">Edit event</div>
-                <div>
-                  <input type="text" 
+          {displayCalendarEvent !== null && (
+            <div>
+              <div className="mb-[16px] ">Edit event</div>
+
+              <div className="text-[15px] text-gray-600">
+                <div className="mb-[12px] flex flex-col">
+                  <label>Title:</label>
+                  <input
+                    type="text"
                     value={title}
-                    name='title'
+                    name="title"
                     onChange={handleEventChange}
+                    className="px-[10px] h-[32px] border border-gray-200 rounded-[5px]"
                   />
                 </div>
-                <div>{displayCalendarEvent?.extendedProps?.description}</div>
-                <div>{displayCalendarEvent?.startStr}</div>
-                <div>{displayCalendarEvent?.endStr}</div>
-                <div>{displayCalendarEvent?.allDay && 'all day'}</div>
-                <div>{displayCalendarEvent?.id}</div>
+
+                <div className="mb-[12px] flex flex-col">
+                  <label>Description:</label>
+                  <input
+                    type="text"
+                    value={description}
+                    name="description"
+                    onChange={handleEventChange}
+                    className="px-[10px] h-[32px] border border-gray-200 rounded-[5px]"
+                  />
+                </div>
+
+                <div className="mb-[12px] flex flex-col">
+                  <label>Start date:</label>
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DateTimePicker 
+                    label=""
+                    value={displayCalendarEvent?.start}
+                    format="dd/M/yyyy HH:mm:ss"
+                    className="!pb-[10px] mb-[10px] ml-[3px] mt-[4px]"
+                  />
+                </LocalizationProvider>
+                </div>
+
+                <div className="mb-[12px] flex flex-col">
+                  <label>End date:</label>
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DateTimePicker 
+                    label=""
+                    value={displayCalendarEvent?.end}
+                    format="dd/M/yyyy HH:mm:ss"
+                    // onChange={(date) => setItemDate(date)}
+                    className="!pb-[10px] mb-[10px] ml-[3px] mt-[4px]"
+                  />
+                </LocalizationProvider>
+                </div>
+                
+                {/* <div>{displayCalendarEvent?.startStr}</div> */}
+                {/* <div>{displayCalendarEvent?.endStr}</div> */}
+                {/* <div>{displayCalendarEvent?.allDay && "all day"}</div> */}
               </div>
-            )}
+            </div>
+          )}
         </div>
       </div>
     </div>
