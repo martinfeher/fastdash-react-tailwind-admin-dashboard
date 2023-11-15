@@ -8,6 +8,12 @@ import {
   DATA_ERROR,
 } from "../actions/types";
 
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear()
+const currentMonth = currentDate.getMonth() + 1
+
+
 const initialState = {
   sidebarMenuOpen: true,
   sidebarMenuManualClose: false,
@@ -29,10 +35,10 @@ const initialState = {
   darkMode: false,
   // darkMode: true,
   calendarEvents: [
-    { title: 'event 1', date: '2023-11-01', description: 'Lorem ipsum' },
-    { title: 'event 2', start: '2023-11-12 08:15:00', end: '2023-11-12 08:45:00'},
-    { title: 'event 3', start: '2023-11-12 15:30:00' },
-    { title: 'event 4', start: '2023-11-15', end: '2023-11-18' }
+    { title: 'event 1', date: currentYear + '-' + currentMonth + '-01', description: 'Lorem ipsum' },
+    { title: 'event 2', start: currentYear + '-' + currentMonth + '-12 08:15:00', end: currentYear + '-' + currentMonth + '-12 08:45:00'},
+    { title: 'event 3', start: currentYear + '-' + currentMonth + '-12 15:30:00' },
+    { title: 'event 4', start: currentYear + '-' + currentMonth + '-15', end: currentYear + '-' + currentMonth + '-18' }
   ]
 };
 
