@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import AdminLayout from "../layout/AdminLayout";
@@ -10,17 +10,19 @@ import {
 
 
 const Calendar = ({setOpenCalendarEventModal, global: {darkMode, calendarEventModalOpen, calendarEvents}}) => {
-
-
-const [displayCalendarEvent, setDisplayCalendarEvent] = useState(null);
-
-const [events, setEvents] = useState([]);
+  const calendarEventsRef = useRef(null)
+  const [displayCalendarEvent, setDisplayCalendarEvent] = useState(null);
+  const [events, setEvents] = useState([]);
 
 
 useEffect(() => {
 
   console.log('calendarEvents && calendarEvents')
-  console.log(calendarEvents && calendarEvents)
+  // console.log(calendarEvents && calendarEvents)
+
+  const myCalendar = calendarEventsRef?.current?.getApi();
+  myCalendar?.removeAllEvents();
+  myCalendar?.addEventSource(calendarEvents);
   setEvents(calendarEvents && calendarEvents)
   
 }, [calendarEvents]);
@@ -43,6 +45,7 @@ useEffect(() => {
             <main className="p-4 w-full">
             
               <FullCalendar
+                ref = {calendarEventsRef}
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
                 // events={events}
