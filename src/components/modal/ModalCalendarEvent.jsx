@@ -48,10 +48,10 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
     };
   }, [handleKeyDown]);
 
-  const closeModal = useCallback(() => {
-    setOpenCalendarEventModal(false);
-    });
-  useClickOutside(calendarEventModalRef, closeModal);
+  // const closeModal = useCallback(() => {
+  //   setOpenCalendarEventModal(false);
+  //   });
+  // useClickOutside(calendarEventModalRef, closeModal);
 
 
   const clickUpdateEvent = () => {
@@ -149,7 +149,7 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
                     value={description}
                     name="description"
                     onChange={(e) => setDescription(e.target.value)}
-                    className="px-[10px] min-h-[78px] text-[14px] border border-gray-350 hover:border-gray-500 rounded-[5px] outline-none"
+                    className="px-[10px] py-[4px] min-h-[78px] text-[14px] border border-gray-350 hover:border-gray-500 rounded-[5px] outline-none"
                   />
                 </div>
                 {/* <div>{displayCalendarEvent?.allDay && "all day"}</div> */}
