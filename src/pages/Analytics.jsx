@@ -3,6 +3,7 @@ import AdminLayout from "../layout/AdminLayout";
 import WidgetAnalytics from "../components/widget/WidgetAnalytics";
 import VisitorsDemographicChart from "../components/charts/VisitorsDemographicChart";
 import ReactApexChart from 'react-apexcharts';
+import { IoLogoGithub } from "react-icons/io";
 import { optionsUniqueVisitors, optionsUniqueVisitorsDark, seriesUniqueVisitors, optionsTrafficSource, optionsTrafficSourceDark, seriesTrafficSource,
   data30dCardWebsiteTraffic, data30dCardConversion, data30dCardSessiondurationMinutes, data30dCardBounce, dataNewReturning, dataGender, dataLanguage, dataAge
  } from "../data/charts";
@@ -20,6 +21,11 @@ const Analytics = ({global: {darkMode}}) => {
 
     return (
       <div className={`${darkMode ? "dark" : ""}`}>
+        <div className="sticky top-0 z-[999] flex items-center py-[3px] px-2">
+          <a href="https://github.com/martinfeher/fastdash-react-tailwind-admin-dashboard" target="_blank" >
+            <div className="flex text-gray-600 text-[12px] cursor-pointer"><IoLogoGithub className="mr-[2px] text-[17px]" /> github link</div> 
+          </a>
+        </div>
         <div className="bg-brandLight dark:bg-brandDarkPrimary">
           <AdminLayout>
             <main className="p-4 w-full">
