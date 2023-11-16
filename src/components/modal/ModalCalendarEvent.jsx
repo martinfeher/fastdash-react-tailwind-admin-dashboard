@@ -5,6 +5,7 @@ import useWindowDimensions from "../utils/useWindowDimensions";
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import useClickOutside from "../utils/useClickOutside";
 import format from "date-fns/format"
 
 import {
@@ -47,6 +48,11 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
     };
   }, [handleKeyDown]);
 
+  const closeModal = useCallback(() => {
+    setOpenCalendarEventModal(false);
+    });
+  useClickOutside(calendarEventModalRef, closeModal);
+
 
   const clickUpdateEvent = () => {
 
@@ -71,6 +77,7 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
   const clickCancelEvent = () => {
     setOpenCalendarEventModal(false)
   }
+
 
   return (
     <div className="fixed top-0 bottom-0 right-0 m-auto left-0 z-100 bg-gray-350 dark:bg-gray-700 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-[1px] dark:backdrop-blur-[1px] z-[999]">
