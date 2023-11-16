@@ -35,7 +35,7 @@ const initialState = {
   darkMode: false,
   // darkMode: true,
   calendarEvents: [
-    { title: 'event 1', date: currentYear + '-' + currentMonth + '-01', description: 'Lorem ipsum' },
+    { title: 'event 1', start: currentYear + '-' + currentMonth + '-01', description: 'Lorem ipsum' },
     { title: 'event 2', start: currentYear + '-' + currentMonth + '-12 08:15:00', end: currentYear + '-' + currentMonth + '-12 08:45:00', description: 'Lorem ipsum' },
     { title: 'event 3', start: currentYear + '-' + currentMonth + '-12 15:30:00', description: 'Lorem ipsum'  },
     { title: 'event 4', start: currentYear + '-' + currentMonth + '-15', end: currentYear + '-' + currentMonth + '-18', description: 'Lorem ipsum'  }
