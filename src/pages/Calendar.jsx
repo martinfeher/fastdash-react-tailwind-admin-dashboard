@@ -17,7 +17,7 @@ const Calendar = ({setOpenCalendarEventModal, global: {darkMode, calendarEventMo
 
 useEffect(() => {
 
-  console.log('calendarEvents && calendarEvents')
+  // console.log('calendarEvents && calendarEvents')
   // console.log(calendarEvents && calendarEvents)
 
   const myCalendar = calendarEventsRef?.current?.getApi();
