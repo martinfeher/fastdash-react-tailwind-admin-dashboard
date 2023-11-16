@@ -33,7 +33,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
     >
       <motion.div
           ref={sideBarRef}
-        initial={{ marginLeft: 0 }}
+        initial={width < 1024 ? { marginLeft: "-245px" } : { marginLeft: 0 } }
         animate={{ marginLeft: sidebarMenuOpen ? 0 : "-245px" }}
         transition={{ duration: 0.01 }}
         className="sidebar h-full min-h-screen min-w-[245px] px-2 z-50 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-all duration-300"

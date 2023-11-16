@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useDeferredValue } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import AdminLayout from "../layout/AdminLayout";
@@ -14,18 +14,21 @@ const Calendar = ({setOpenCalendarEventModal, global: {darkMode, calendarEventMo
   const [displayCalendarEvent, setDisplayCalendarEvent] = useState(null);
   const [events, setEvents] = useState([]);
 
+  // const deferredQuery = useDeferredValue(calendarEvents);
 
 useEffect(() => {
-
-  // console.log('calendarEvents && calendarEvents')
-  // console.log(calendarEvents && calendarEvents)
-
   const myCalendar = calendarEventsRef?.current?.getApi();
   myCalendar?.removeAllEvents();
   myCalendar?.addEventSource(calendarEvents);
   setEvents(calendarEvents && calendarEvents)
   
 }, [calendarEvents]);
+
+// useEffect(() => {
+//   const delay = setTimeout(() => {
+//     setCalendarEvents(calendarEvents)
+//   }, 3000) 
+// }, []);
   
  const handleEventClick = (e) => {
 
@@ -38,21 +41,17 @@ useEffect(() => {
     return (
       <div className={`${darkMode ? "dark" : ""}`}>
         <div className="bg-brandLight dark:bg-brandDarkPrimary">
-
         {calendarEventModalOpen && <ModalCalendarEvent displayCalendarEvent={displayCalendarEvent} />}
-
           <AdminLayout>
             <main className="p-4 w-full">
-            
               <FullCalendar
                 ref = {calendarEventsRef}
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
-                // events={events}
                 events={calendarEvents}
+                // events={deferredQuery}
                 eventClick={handleEventClick}
               />
-
             </main>
           </AdminLayout>
         </div>
