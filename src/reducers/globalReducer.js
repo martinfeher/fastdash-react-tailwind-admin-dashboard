@@ -25,6 +25,7 @@ const initialState = {
     { name: 'Crm', link: '/crm'},
     { name: 'Kanban', link: '/kanban'},
     { name: 'Profile', link: '/profile'},
+    { name: 'Calendar', link: '/calendar'},
     { name: 'Charts', link: '/charts'},
     { name: 'Maps', link: '/maps'},
     { name: 'Buttons', link: '/buttons'},
