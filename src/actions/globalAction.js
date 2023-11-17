@@ -2,6 +2,8 @@ import {
   SET_WEBSITE_SEARCH_TEXT,
   SET_OPEN_WEBSITE_SEARCH,
   SET_OPEN_SIDEBAR_MENU,
+  SET_OPEN_CALENDAR_EVENT_MODAL,
+  SET_CALENDAR_EVENTS,
   SET_DARK_MODE,
   DATA_ERROR,
 
@@ -44,6 +46,36 @@ export const setOpenSidebarMenu = (sidebarMenuOpen, sidebarMenuManualClose=true)
       type: SET_OPEN_SIDEBAR_MENU,
       sidebarMenuOpen: sidebarMenuOpen,
       sidebarMenuManualClose: sidebarMenuManualClose,
+    });
+  } catch (err) {
+    dispatch({
+      type: DATA_ERROR,
+      payload: err.response,
+    });
+  }
+};
+
+export const setOpenCalendarEventModal = (calendarEventModalOpen) => async (dispatch) => {
+
+  try {
+    dispatch({
+      type: SET_OPEN_CALENDAR_EVENT_MODAL,
+      calendarEventModalOpen: calendarEventModalOpen,
+    });
+  } catch (err) {
+    dispatch({
+      type: DATA_ERROR,
+      payload: err.response,
+    });
+  }
+};
+
+export const setCalendarEvents = (calendarEventsNew) => async (dispatch) => {
+
+  try {
+    dispatch({
+      type: SET_CALENDAR_EVENTS,
+      calendarEventsNew: calendarEventsNew,
     });
   } catch (err) {
     dispatch({

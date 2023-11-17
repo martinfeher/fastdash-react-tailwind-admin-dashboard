@@ -11,7 +11,7 @@ const Profile = ({global: {darkMode}}) => {
         <div className="bg-brandLight dark:bg-brandDarkPrimary">
           <AdminLayout>
             <main className="p-4 w-full flex flex-col gap-5">
-              <div className="gap-5 lg:grid lg:grid-cols-12">
+              <div className="grid lg:grid-cols-12 gap-5">
                 <div className="col-span-4 p-3 bg-white dark:bg-brandDarkSecondary rounded-lg shadow-sm flex flex-col items-center">
                   <div className="relative h-[70px] w-full bg-gradient-to-r from-cyan-500 to-sky-500">
                     <div className="w-full">

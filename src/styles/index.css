@@ -28,3 +28,32 @@ h5 {
     @apply: bg-green-400;
     background-color: #303c34;
 }
+
+/* Calendar */
+.dateTimePicker .MuiInputBase-input {
+    padding: 8px !important;
+    font-size: 15px !important;
+}
+
+.fc-button {
+    background: #f1f2f3 !important;
+    color: #454f5e !important;
+}
+
+.fc-today-button {
+    color: #000 !important;
+}
+@media screen and (max-width: 580px) {
+    .fc-button-group {
+        margin-left: 0 !important;
+    }
+  }
+
+@media screen and (max-width: 400px) {
+.fc-button-group {
+    margin-top: 4px !important;
+}
+}
+
+
+/* End Calendar */

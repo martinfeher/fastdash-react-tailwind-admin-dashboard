@@ -2,14 +2,23 @@ import {
   SET_WEBSITE_SEARCH_TEXT,
   SET_OPEN_WEBSITE_SEARCH,
   SET_OPEN_SIDEBAR_MENU,
+  SET_OPEN_CALENDAR_EVENT_MODAL,
+  SET_CALENDAR_EVENTS,
   SET_DARK_MODE,
   DATA_ERROR,
 } from "../actions/types";
+
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear()
+const currentMonth = currentDate.getMonth() + 1
+
 
 const initialState = {
   sidebarMenuOpen: true,
   sidebarMenuManualClose: false,
   websiteSearchOpen: false,
+  calendarEventModalOpen: false,
   websiteSearchText: '',
   availableSearchItems: [
     { name: 'Analytics', link: '/'},
@@ -25,6 +34,13 @@ const initialState = {
   searchItems: [],
   darkMode: false,
   // darkMode: true,
+  calendarEvents: [
+    { title: 'event 1', start: currentYear + '-' + currentMonth + '-01', end: currentYear + '-' + currentMonth + '-03', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'  },
+    { title: 'event 2', start: currentYear + '-' + currentMonth + '-06 08:15:00', end: currentYear + '-' + currentMonth + '-06 08:45:00', description: 'Lorem ipsum' },
+    { title: 'event 3', start: currentYear + '-' + currentMonth + '-06 15:30:00', end: currentYear + '-' + currentMonth + '-06 16:30:00', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'  },
+    { title: 'event 4', start: currentYear + '-' + currentMonth + '-10 12:30:00', end: currentYear + '-' + currentMonth + '-10 13:15:00', description: 'Lorem ipsum dolor tempor incididunt'  },
+    { title: 'event 5', start: currentYear + '-' + currentMonth + '-14', end: currentYear + '-' + currentMonth + '-17', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '  }
+  ]
 };
 
 const globalReducer = (state = initialState, action) => {
@@ -70,6 +86,29 @@ const globalReducer = (state = initialState, action) => {
         sidebarMenuOpen: sidebarMenuOpen,
         sidebarMenuManualClose: sidebarMenuManualClose,
       };
+
+
+    case SET_OPEN_CALENDAR_EVENT_MODAL:
+
+      let calendarEventModalOpen = action.calendarEventModalOpen
+  
+        return {
+          ...state,
+          calendarEventModalOpen: calendarEventModalOpen,
+        };
+
+    case SET_CALENDAR_EVENTS:
+
+      let calendarEventsNew = action.calendarEventsNew
+
+      console.log('calendarEventsNew')
+      console.log(calendarEventsNew)
+  
+        return {
+          ...state,
+          calendarEvents: calendarEventsNew,
+        };
+        
 
     case SET_DARK_MODE:
 

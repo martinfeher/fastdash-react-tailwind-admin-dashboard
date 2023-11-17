@@ -18,7 +18,7 @@ const ModalSearch = ({ setOpenWebsiteSearch, setWebsiteSearchText, setOpenSideba
     const { height, width } = useWindowDimensions()
 
     useEffect(() => {
-        searchInputRef.current.select()
+        searchInputRef.current.focus()
     }, []);
 
   const handleKeyDown = useCallback((e) => {

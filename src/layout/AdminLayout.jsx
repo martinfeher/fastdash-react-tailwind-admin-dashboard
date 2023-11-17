@@ -9,7 +9,7 @@ import {
   setOpenSidebarMenu
 } from "../actions/globalAction";
 
-const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, sidebarMenuManualClose}}) => {
+const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, sidebarMenuManualClose, darkMode}}) => {
 
     const sideBarRef = useRef(null)
     const { height, width } = useWindowDimensions()
@@ -33,7 +33,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
     >
       <motion.div
           ref={sideBarRef}
-        initial={{ marginLeft: 0 }}
+        initial={width < 1024 ? { marginLeft: "-245px" } : { marginLeft: 0 } }
         animate={{ marginLeft: sidebarMenuOpen ? 0 : "-245px" }}
         transition={{ duration: 0.01 }}
         className="sidebar h-full min-h-screen min-w-[245px] px-2 z-50 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-all duration-300"
@@ -134,6 +134,27 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
+          {!darkMode && (
+            <div className="w-full flex items-center">
+            <NavLink
+              to={"/calendar"}
+              className={({ isActive }) =>
+                (isActive
+                  ? "text-black bg-blue-100 dark:bg-slate-600"
+                  : "hover:bg-slate-150 dark:hover:bg-slate-700") + " w-full h-[38px] lg:h-[35px] flex items-center px-2 rounded-[5px]"
+              }
+            >
+              <div className="w-full flex">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+              className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+              </svg>
+
+                <div className="ml-3 dark:text-gray-300">Calendar</div>
+              </div>
+            </NavLink>
+          </div>
+          )}
           <div className="pl-2 mt-[6px] text-gray-500">COMPONENTS</div>
           <div className="w-full flex items-center">
             <NavLink
@@ -162,7 +183,8 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               }
             >
               <div className="w-full flex">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+              className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
               </svg>
                 <div className="ml-3 dark:text-gray-300">Maps</div>

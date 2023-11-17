@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-// import './styles/font.css';
 import './styles/globals.css';
 import './styles/index.css';
 
@@ -11,6 +10,7 @@ import Kanban from "./pages/Kanban";
 import Maps from "./pages/Maps";
 import Charts from "./pages/Charts";
 import Buttons from "./pages/Buttons";
+import Calendar from "./pages/Calendar";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
@@ -26,6 +26,7 @@ const App = () => {
         <Route path="/maps" element={<Maps />} />
         <Route path="/charts" element={<Charts />} />
         <Route path="/buttons" element={<Buttons />} />
+        <Route path="/calendar" element={<Calendar />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
