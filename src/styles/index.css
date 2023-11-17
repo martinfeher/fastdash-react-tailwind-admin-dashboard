@@ -43,6 +43,17 @@ h5 {
 .fc-today-button {
     color: #000 !important;
 }
+@media screen and (max-width: 580px) {
+    .fc-button-group {
+        margin-left: 0 !important;
+    }
+  }
+
+@media screen and (max-width: 400px) {
+.fc-button-group {
+    margin-top: 4px !important;
+}
+}
 
 
 /* End Calendar */
