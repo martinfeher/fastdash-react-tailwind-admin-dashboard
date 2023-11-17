@@ -29,8 +29,20 @@ h5 {
     background-color: #303c34;
 }
 
-
+/* Calendar */
 .dateTimePicker .MuiInputBase-input {
     padding: 8px !important;
     font-size: 15px !important;
 }
+
+.fc-button {
+    background: #f1f2f3 !important;
+    color: #454f5e !important;
+}
+
+.fc-today-button {
+    color: #000 !important;
+}
+
+
+/* End Calendar */

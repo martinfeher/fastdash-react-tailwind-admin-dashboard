@@ -9,7 +9,7 @@ import {
   setOpenSidebarMenu
 } from "../actions/globalAction";
 
-const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, sidebarMenuManualClose}}) => {
+const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, sidebarMenuManualClose, darkMode}}) => {
 
     const sideBarRef = useRef(null)
     const { height, width } = useWindowDimensions()
@@ -134,7 +134,8 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className="w-full flex items-center">
+          {!darkMode && (
+            <div className="w-full flex items-center">
             <NavLink
               to={"/calendar"}
               className={({ isActive }) =>
@@ -153,6 +154,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
+          )}
           <div className="pl-2 mt-[6px] text-gray-500">COMPONENTS</div>
           <div className="w-full flex items-center">
             <NavLink
