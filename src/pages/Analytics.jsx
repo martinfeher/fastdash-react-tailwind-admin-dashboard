@@ -23,13 +23,13 @@ const Analytics = ({global: {darkMode}}) => {
 
     return (
       <div className={`${darkMode ? "dark" : ""}`}>
-        <div className="sticky top-0 z-[999] flex items-center py-[3px] px-2">
+        <div className="hidden md:flex items-center py-[3px] px-2 bg-gray-50"> 
           <a
             href="https://github.com/martinfeher/fastdash-react-tailwind-admin-dashboard"
             target="_blank"
           >
             <div className="flex text-gray-600 text-[12px] cursor-pointer">
-              <IoLogoGithub className="mr-[2px] text-[17px]" /> github link
+              <IoLogoGithub className="mr-[2px] text-[17px]" /> github link, Free to download 
             </div>
           </a>
         </div>
