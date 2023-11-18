@@ -13,6 +13,8 @@ const Analytics = ({global: {darkMode}}) => {
 
   const [seriesUniqueVisitorsChart, setSeriesUniqueVisitorsChart] = useState([])
 
+  const [rangeTime, setRangeTime] = useState("Month")
+
   useEffect(() => {
     const delay = setTimeout(() => {
       setSeriesUniqueVisitorsChart(seriesUniqueVisitors)
@@ -22,19 +24,42 @@ const Analytics = ({global: {darkMode}}) => {
     return (
       <div className={`${darkMode ? "dark" : ""}`}>
         <div className="sticky top-0 z-[999] flex items-center py-[3px] px-2">
-          <a href="https://github.com/martinfeher/fastdash-react-tailwind-admin-dashboard" target="_blank" >
-            <div className="flex text-gray-600 text-[12px] cursor-pointer"><IoLogoGithub className="mr-[2px] text-[17px]" /> github link</div> 
+          <a
+            href="https://github.com/martinfeher/fastdash-react-tailwind-admin-dashboard"
+            target="_blank"
+          >
+            <div className="flex text-gray-600 text-[12px] cursor-pointer">
+              <IoLogoGithub className="mr-[2px] text-[17px]" /> github link
+            </div>
           </a>
         </div>
         <div className="bg-brandLight dark:bg-brandDarkPrimary">
           <AdminLayout>
             <main className="p-4 w-full">
-              <div>
-                <h2 className="dark:text-gray-300 text-[21px]">
-                  Analytics dashboard
-                </h2>
-                <div className="text-gray-500 dark:text-gray-400 text-[12px] ml-[2px]">
-                  Monitor metrics, view reports and performance
+              <div className="flex justify-between items-center">
+                <div>
+                  <h2 className="dark:text-gray-300 text-[21px]">
+                    Analytics dashboard
+                  </h2>
+                  <div className="text-gray-500 dark:text-gray-400 text-[12px] ml-[2px]">
+                    Monitor metrics, view reports and performance
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-[1px] px-[3px] py-[3px] text-gray-550 dark:text-gray-200  text-[12px] border-2 border-gray-350 dark:border-gray-500 rounded-full"> 
+                    <div className={`${ rangeTime === "Day" ? 'bg-blue-500 text-white shadow-lg rounded-full' : ''} px-[11px] py-[3px] cursor-pointer`}
+                      onClick={()=> setRangeTime("Day")} 
+                      >Day
+                    </div>
+                    <div className={`${ rangeTime === "Week" ? ' bg-blue-500 text-white shadow-lg rounded-full' : ''} px-[11px] py-[3px] cursor-pointer`}
+                      onClick={()=> setRangeTime("Week")}
+                      >Week
+                    </div>
+                    <div className={`${ rangeTime === "Month" ? ' bg-blue-500 text-white shadow-lg rounded-full' : ''} px-[11px] py-[3px] cursor-pointer`}
+                      onClick={()=> setRangeTime("Month")}
+                      >Month
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col gap-5 mt-[16px]">
@@ -46,6 +71,7 @@ const Analytics = ({global: {darkMode}}) => {
                     amount={"24.3K"}
                     differenceRatio={"+33.8%"}
                     color={"#8884d8"}
+                    rangeTime={rangeTime}
                   />
                   <WidgetAnalytics
                     title={"Conversion"}
@@ -54,6 +80,7 @@ const Analytics = ({global: {darkMode}}) => {
                     amount={"8.25K"}
                     differenceRatio={"+27.5%"}
                     color={"#8884d8"}
+                    rangeTime={rangeTime}
                   />
                   <WidgetAnalytics
                     title={"Session Duration"}
@@ -62,6 +89,7 @@ const Analytics = ({global: {darkMode}}) => {
                     amount={"16min"}
                     differenceRatio={"+5.8%"}
                     color={"#8884d8"}
+                    rangeTime={rangeTime}
                   />
                   <WidgetAnalytics
                     title={"Bounce"}
@@ -72,6 +100,7 @@ const Analytics = ({global: {darkMode}}) => {
                     amount={"6.7K"}
                     differenceRatio={"+5.2%"}
                     color={"#8884d8"}
+                    rangeTime={rangeTime}
                   />
                 </div>
                 <div className="grid md:grid-cols-3 gap-5">
@@ -121,22 +150,22 @@ const Analytics = ({global: {darkMode}}) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-[10px]">
                     <VisitorsDemographicChart
                       title={"New / Returning"}
-                      range={"30 days"}
+                      range={rangeTime}
                       data={dataNewReturning}
                     />
                     <VisitorsDemographicChart
                       title={"Language"}
-                      range={"30 days"}
+                      range={rangeTime}
                       data={dataLanguage}
                     />
                     <VisitorsDemographicChart
                       title={"Gender"}
-                      range={"30 days"}
+                      range={rangeTime}
                       data={dataGender}
                     />
                     <VisitorsDemographicChart
                       title={"Age"}
-                      range={"30 days"}
+                      range={rangeTime}
                       data={dataAge}
                     />
                   </div>

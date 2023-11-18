@@ -1,6 +1,6 @@
 import { BarChart, Bar } from 'recharts';
 
-const WidgetAnalytics = ({ title, description, amount, differenceRatio, color, data }) => {
+const WidgetAnalytics = ({ title, description, amount, differenceRatio, color, data, rangeTime }) => {
   
   return (
     <div className="flex justify-between px-4 py-[9px] bg-white dark:bg-brandDarkSecondary border border-gray-100 dark:border-gray-500 text-[14px] text-gray-700 rounded-lg shadow-sm">
@@ -14,7 +14,7 @@ const WidgetAnalytics = ({ title, description, amount, differenceRatio, color, d
           <div className="text-green-600 dark:text-green-400 text-[13px]">{differenceRatio}</div>
           <div>
             <div className="w-[51px] h-[20px] flex justify-center items-center bg-gray-200 dark:bg-gray-500 dark:text-gray-200 text-[9px] rounded-full">
-              30 days
+              {rangeTime}
             </div>
           </div>
         </div>
