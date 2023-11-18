@@ -36,16 +36,16 @@ const Analytics = ({global: {darkMode}}) => {
         <div className="bg-brandLight dark:bg-brandDarkPrimary">
           <AdminLayout>
             <main className="p-4 w-full">
-              <div className="flex justify-between items-center">
-                <div>
-                  <h2 className="dark:text-gray-300 text-[21px]">
+              <div className="flex flex-col sm:flex-row justify-between items-center">
+                <div className="w-full">
+                  <h2 className="dark:text-gray-300 text-[21px] text-center sm:text-start">
                     Analytics dashboard
                   </h2>
-                  <div className="text-gray-500 dark:text-gray-400 text-[12px] ml-[2px]">
+                  <div className="text-gray-500 dark:text-gray-400 text-[12px] ml-[2px] text-center sm:text-start">
                     Monitor metrics, view reports and performance
                   </div>
                 </div>
-                <div>
+                <div className="w-full sm:w-auto flex justify-end mt-[12px] sm:mt-0">
                   <div className="flex items-center gap-[1px] px-[3px] py-[3px] text-gray-550 dark:text-gray-200  text-[12px] border-2 border-gray-350 dark:border-gray-500 rounded-full"> 
                     <div className={`${ rangeTime === "Day" ? 'bg-blue-500 text-white shadow-lg rounded-full' : ''} px-[11px] py-[3px] cursor-pointer`}
                       onClick={()=> setRangeTime("Day")} 
