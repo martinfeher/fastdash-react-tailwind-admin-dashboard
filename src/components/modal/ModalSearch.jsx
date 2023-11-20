@@ -125,8 +125,8 @@ const ModalSearch = ({ setOpenWebsiteSearch, setWebsiteSearchText, setOpenSideba
                       icon={
                         <HiOutlineSearch className="text-[17px] text-gray-400" />
                       }
-                      title={"Calendar"}
-                      link={"/calendar"}
+                      title={"Newsletter"}
+                      link={"/newsletter"}
                     />
                     <QuicklinkItem
                       icon={

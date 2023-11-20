@@ -11,6 +11,7 @@ import Maps from "./pages/Maps";
 import Charts from "./pages/Charts";
 import Buttons from "./pages/Buttons";
 import Calendar from "./pages/Calendar";
+import Newsletter from "./pages/Newsletter";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/charts" element={<Charts />} />
         <Route path="/buttons" element={<Buttons />} />
         <Route path="/calendar" element={<Calendar />} />
+        <Route path="/newsletter" element={<Newsletter />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
