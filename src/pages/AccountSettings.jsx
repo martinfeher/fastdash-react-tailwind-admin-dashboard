@@ -85,7 +85,7 @@ const AccountSettings = ({global: {darkMode}}) => {
                   Role
                 </div>
                 <div className="col-span-12 md:col-span-8 xl:col-span-8 mt-0 md:mt-[3px]">
-                  <select id="role" className="w-full p-2 dark:bg-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-600 focus:border-gray-500 hover:border-gray-400 dark:focus:border-gray-500 rounded-[3px] outline-none cursor-pointer">
+                  <select id="role" className="w-full p-2 bg-white dark:bg-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-600 focus:border-gray-500 hover:border-gray-400 dark:focus:border-gray-500 rounded-[3px] outline-none cursor-pointer">
                     <option value="Product Designer">Product Designer</option>
                     <option value="Marketing Manager">Marketing Manager</option>
                     <option value="Software Engineer">Software Engineer</option>
@@ -98,7 +98,7 @@ const AccountSettings = ({global: {darkMode}}) => {
                   Country
                 </div>
                 <div className="col-span-12 md:col-span-8 xl:col-span-8 mt-0 md:mt-[3px]">
-                  <select id="role" className="w-full p-2 dark:bg-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-600 focus:border-gray-500 hover:border-gray-400 dark:focus:border-gray-500 rounded-[3px] outline-none cursor-pointer">
+                  <select id="role" className="w-full p-2 bg-white dark:bg-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-600 focus:border-gray-500 hover:border-gray-400 dark:focus:border-gray-500 rounded-[3px] outline-none cursor-pointer">
 
                     <option value="Australia">Australia</option>
                     <option value="Germany">Germany</option>
@@ -114,7 +114,7 @@ const AccountSettings = ({global: {darkMode}}) => {
                   Bio
                 </div>
                 <div className="col-span-12 md:col-span-8 xl:col-span-8 mt-0 md:mt-[3px]">
-                  <textarea name="" rows="5" className="w-full p-2 dark:bg-gray-800 dark:text-gray-300 border border-gray-300  dark:border-gray-600 hover:border-gray-400 dark:focus:border-gray-500 outline-none rounded-[3px]"></textarea> 
+                  <textarea name="" rows="5" className="w-full p-2 bg-white dark:bg-gray-800 dark:text-gray-300 border border-gray-300  dark:border-gray-600 hover:border-gray-400 dark:focus:border-gray-500 outline-none rounded-[3px]"></textarea> 
                 </div>
               </div>
             </main>
