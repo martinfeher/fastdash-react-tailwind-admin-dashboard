@@ -48,7 +48,7 @@ const ModalSearch = ({ setOpenWebsiteSearch, setWebsiteSearchText, setOpenSideba
     <div className="fixed top-0 bottom-0 right-0 m-auto left-0 z-100 bg-gray-350 dark:bg-gray-700 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-[1px] dark:backdrop-blur-[1px] z-[999]">
       <div
         ref={pageModalRef}
-        className={`relative flex w-[90%] md:w-[600px] h-[460px] right-0 left-0 mt-[80px] mx-auto px-6 pb-4 rounded-[12px] z-[999] 
+        className={`relative flex w-[90%] md:w-[600px] h-[500px] right-0 left-0 mt-[80px] mx-auto px-6 pb-4 rounded-[12px] z-[999] 
         bg-brandLight dark:bg-brandDarkPrimary border border-gray-300  dark:border-gray-400 `}
       >
         <div
@@ -127,6 +127,14 @@ const ModalSearch = ({ setOpenWebsiteSearch, setWebsiteSearchText, setOpenSideba
                       }
                       title={"Newsletter"}
                       link={"/newsletter"}
+                    />
+                    
+                    <QuicklinkItem
+                      icon={
+                        <HiOutlineSearch className="text-[17px] text-gray-400" />
+                      }
+                      title={"Account"}
+                      link={"/account-settings"}
                     />
                     <QuicklinkItem
                       icon={

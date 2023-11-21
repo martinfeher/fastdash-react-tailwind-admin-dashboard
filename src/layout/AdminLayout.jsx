@@ -227,6 +227,25 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
+          <div className="w-full flex items-center">
+            <NavLink
+              to={"/account-settings"}
+              className={({ isActive }) =>
+                (isActive
+                  ? "text-black bg-blue-100 dark:bg-slate-600"
+                  : "hover:bg-slate-150 dark:hover:bg-slate-700") +
+                " w-full h-[38px] lg:h-[35px] flex items-center px-2 rounded-[5px]"
+              }
+            >
+              <div className="w-full flex">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+
+                <div className="ml-3 dark:text-gray-300">Account</div>
+              </div>
+            </NavLink>
+          </div>
           <div className="pl-2 mt-[6px] text-gray-500">COMPONENTS</div>
           <div className="w-full flex items-center">
             <NavLink

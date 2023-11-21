@@ -27,6 +27,7 @@ const initialState = {
     { name: 'Profile', link: '/profile'},
     { name: 'Calendar', link: '/calendar'},
     { name: 'Newsletter', link: '/newsletter'},
+    { name: 'Account', link: '/account-settings'},
     { name: 'Charts', link: '/charts'},
     { name: 'Maps', link: '/maps'},
     { name: 'Buttons', link: '/buttons'},

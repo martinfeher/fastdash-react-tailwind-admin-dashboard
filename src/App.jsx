@@ -12,6 +12,7 @@ import Charts from "./pages/Charts";
 import Buttons from "./pages/Buttons";
 import Calendar from "./pages/Calendar";
 import Newsletter from "./pages/Newsletter";
+import AccountSettings from "./pages/AccountSettings";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/buttons" element={<Buttons />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/newsletter" element={<Newsletter />} />
+        <Route path="/account-settings" element={<AccountSettings />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
