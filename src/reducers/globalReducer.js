@@ -16,6 +16,7 @@ const currentMonth = currentDate.getMonth() + 1
 
 const initialState = {
   sidebarMenuOpen: true,
+  // sidebarMenuOpen: false,
   sidebarMenuManualClose: false,
   websiteSearchOpen: false,
   calendarEventModalOpen: false,
