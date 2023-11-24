@@ -7,6 +7,7 @@ import Analytics from "./pages/Analytics";
 import Profile from "./pages/Profile";
 import Crm from "./pages/Crm";
 import Kanban from "./pages/Kanban";
+import PointOfSale from "./pages/PointOfSale";
 import Maps from "./pages/Maps";
 import Charts from "./pages/Charts";
 import Buttons from "./pages/Buttons";
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/crm" element={<Crm />} />
         <Route path="/kanban" element={<Kanban />} />
+        <Route path="/point-of-sale" element={<PointOfSale />} />
         <Route path="/maps" element={<Maps />} />
         <Route path="/charts" element={<Charts />} />
         <Route path="/buttons" element={<Buttons />} />
