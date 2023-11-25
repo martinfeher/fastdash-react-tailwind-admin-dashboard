@@ -83,14 +83,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Analytics" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Analytics</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Analytics</div>
                 </div>
               </div>
             )}
@@ -140,14 +140,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               {menuTooltip === "Crm" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Crm</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Crm</div>
                 </div>
               </div>
             )}
@@ -187,14 +187,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               {menuTooltip === "Kanban" && !sidebarMenuOpen && (
                 <div>
                   <div
-                    className={`left-[31px] top-[7px] absolute z-[1000]`}
+                    className={`left-[31px] top-[5px] absolute z-[1000]`}
                   >
                     <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                   </div>
                   <div
-                    className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                    className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                   >
-                    <div className="text-14px text-gray-700 dark:text-gray-200">Kanban</div>
+                    <div className="text-[14px] text-gray-700 dark:text-gray-200">Kanban</div>
                   </div>
                 </div>
               )}
@@ -235,14 +235,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Profile" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Profile</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Profile</div>
                 </div>
               </div>
             )}
@@ -283,14 +283,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Calendar" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Calendar</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Calendar</div>
                 </div>
               </div>
             )}
@@ -335,14 +335,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Newsletter" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Newsletter</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Newsletter</div>
                 </div>
               </div>
             )}
@@ -382,14 +382,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Account" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Account</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Account</div>
                 </div>
               </div>
             )}
@@ -433,14 +433,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Charts" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Charts</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Charts</div>
                 </div>
               </div>
             )}
@@ -480,14 +480,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Maps" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Maps</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Maps</div>
                 </div>
               </div>
             )}
@@ -528,14 +528,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Buttons" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="text-14px text-gray-700 dark:text-gray-200">Buttons</div>
+                  <div className="text-[14px] text-gray-700 dark:text-gray-200">Buttons</div>
                 </div>
               </div>
             )}
@@ -579,14 +579,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Sign in" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="w-[67px] text-14px text-gray-700 dark:text-gray-200">Sign in</div>
+                  <div className="w-[67px] text-[14px] text-gray-700 dark:text-gray-200">Sign in</div>
                 </div>
               </div>
             )}
@@ -626,14 +626,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             {menuTooltip === "Sign up" && !sidebarMenuOpen && (
               <div>
                 <div
-                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
                 >
                   <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
                 </div>
                 <div
-                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
                 >
-                  <div className="w-[67px] text-14px text-gray-700 dark:text-gray-200">Sign up</div>
+                  <div className="w-[67px] text-[14px] text-gray-700 dark:text-gray-200">Sign up</div>
                 </div>
               </div>
             )}

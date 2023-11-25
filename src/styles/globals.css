@@ -1604,6 +1604,10 @@ video {
   --tw-bg-opacity: 0.7;
 }
 
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -2585,6 +2589,14 @@ video {
 
 :is(.dark .dark\:bg-opacity-70) {
   --tw-bg-opacity: 0.7;
+}
+
+:is(.dark .dark\:bg-opacity-50) {
+  --tw-bg-opacity: 0.5;
+}
+
+:is(.dark .dark\:bg-opacity-80) {
+  --tw-bg-opacity: 0.8;
 }
 
 :is(.dark .dark\:from-\[\#4c56c1\]) {
