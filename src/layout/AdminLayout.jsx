@@ -1,10 +1,11 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { NavLink, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import NavBarAdmin from "./NavBarAdmin";
 import { connect } from "react-redux";
 import useClickOutside from "../components/utils/useClickOutside";
 import useWindowDimensions from "../components/utils/useWindowDimensions";
+import { IoMdArrowDropleft } from "react-icons/io";
 import {
   setOpenSidebarMenu
 } from "../actions/globalAction";
@@ -12,6 +13,9 @@ import {
 const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, sidebarMenuManualClose, darkMode}}) => {
 
     const sideBarRef = useRef(null)
+    // const [menuTooltip, setMenuTooltip] = useState("Analytics");
+    const [menuTooltip, setMenuTooltip] = useState(null);
+
     const { height, width } = useWindowDimensions()
 
     const closeSideBar = useCallback(() => {
@@ -32,14 +36,19 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
     <div className="flex min-h-screen text-gray-700">
       <motion.div
         ref={sideBarRef}
-        initial={ width < 1024 || !sidebarMenuOpen ? { minWidth: "56px", width: "56px"} : { minWidth: "220px", width: "220px"}}
-        animate={{ 
-            minWidth: sidebarMenuOpen ? "220px" : "56px",
-            width: sidebarMenuOpen ? "220px" : "56px" 
-          }}
+        initial={
+          width < 1024 || !sidebarMenuOpen
+            ? { minWidth: "56px", width: "56px" }
+            : { minWidth: "220px", width: "220px" }
+        }
+        animate={{
+          minWidth: sidebarMenuOpen ? "220px" : "56px",
+          width: sidebarMenuOpen ? "220px" : "56px",
+        }}
         transition={{ duration: 0.03 }}
         ease={"linear"}
-        className="sidebar h-full min-h-screen px-2 z-50 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-all duration-300 overflow-hidden"
+        className="sidebar h-full min-h-screen px-2 z-50 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-all duration-300"
+        // className="sidebar h-full min-h-screen px-2 z-50 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-all duration-300 overflow-y-hidden"
       >
         <Link
           to={"/"}
@@ -52,7 +61,9 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               className="object-scale-down h-[38px]"
             />
           </div>
-          <div className="ml-[10px]">{sidebarMenuOpen && <div>FastDash</div>}</div>
+          <div className="ml-[10px]">
+            {sidebarMenuOpen && <div>FastDash</div>}
+          </div>
         </Link>
         <hr />
         <div className="py-3">
@@ -64,20 +75,35 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
           >
             {sidebarMenuOpen && <div>APPS</div>}
           </motion.div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div
+            className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Analytics")}
+            onMouseLeave={() => setMenuTooltip(null)}
+          >
+            {menuTooltip === "Analytics" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Analytics</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/"}
               className={({ isActive }) =>
                 (isActive
                   ? "text-black bg-blue-100 dark:bg-slate-600"
                   : "hover:bg-slate-150 dark:hover:bg-slate-700") +
-                "w-full h-[38px] lg:h-[35px] flex items-center px-2 rounded-[5px]"  
+                " w-full h-[38px] lg:h-[35px] flex items-center px-2 rounded-[5px]"
               }
             >
-              <div
-                className="flex"
-                // onMouseEnter={() => setOpenSidebarMenu(true)}
-              >
+              <div className=" flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -97,14 +123,34 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
                     d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"
                   />
                 </svg>
-                <div className="ml-3 dark:text-gray-300 w-[220px]">
+                <div
+                  className={` ${
+                    sidebarMenuOpen ? "w-[220px]" : "w-[70px]"
+                  } ml-3 dark:text-gray-300 `}
+                >
                   {sidebarMenuOpen && <div>Analytics</div>}
                 </div>
               </div>
             </NavLink>
           </div>
 
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Crm")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+              {menuTooltip === "Crm" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Crm</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/crm"}
               className={({ isActive }) =>
@@ -135,7 +181,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Kanban")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+              {menuTooltip === "Kanban" && !sidebarMenuOpen && (
+                <div>
+                  <div
+                    className={`left-[31px] top-[7px] absolute z-[1000]`}
+                  >
+                    <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                  </div>
+                  <div
+                    className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                  >
+                    <div className="text-14px text-gray-700 dark:text-gray-200">Kanban</div>
+                  </div>
+                </div>
+              )}
             <NavLink
               to={"/kanban"}
               className={({ isActive }) =>
@@ -167,7 +229,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             </NavLink>
           </div>
 
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Profile")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Profile" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Profile</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/profile"}
               className={({ isActive }) =>
@@ -199,7 +277,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             </NavLink>
           </div>
           {!darkMode && (
-            <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+            <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Calendar")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Calendar" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Calendar</div>
+                </div>
+              </div>
+            )}
               <NavLink
                 to={"/calendar"}
                 className={({ isActive }) =>
@@ -235,7 +329,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
           <div className="pl-2 mt-[6px] text-gray-500">
             {sidebarMenuOpen && <div>FORMS</div>}
           </div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Newsletter")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Newsletter" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Newsletter</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/newsletter"}
               className={({ isActive }) =>
@@ -266,7 +376,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Account")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Account" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Account</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/account-settings"}
               className={({ isActive }) =>
@@ -301,7 +427,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
           <div className="pl-2 mt-[6px] text-gray-500">
             {sidebarMenuOpen && <div>COMPONENTS</div>}
           </div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Charts")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Charts" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Charts</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/charts"}
               className={({ isActive }) =>
@@ -332,7 +474,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Maps")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Maps" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Maps</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/maps"}
               className={({ isActive }) =>
@@ -364,7 +522,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
             </NavLink>
           </div>
 
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Buttons")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Buttons" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="text-14px text-gray-700 dark:text-gray-200">Buttons</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/buttons"}
               className={({ isActive }) =>
@@ -399,7 +573,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
           <div className="mt-[6px] pl-2 text-gray-500">
             {sidebarMenuOpen && <div>AUTHENTICATION</div>}
           </div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Sign in")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Sign in" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="w-[67px] text-14px text-gray-700 dark:text-gray-200">Sign in</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/sign-in"}
               className={({ isActive }) =>
@@ -430,7 +620,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className={`${sidebarMenuOpen ? 'w-full' : 'w-[40px]'} `}>
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Sign up")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Sign up" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[7px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999]`}
+                >
+                  <div className="w-[67px] text-14px text-gray-700 dark:text-gray-200">Sign up</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/sign-up"}
               className={({ isActive }) =>
