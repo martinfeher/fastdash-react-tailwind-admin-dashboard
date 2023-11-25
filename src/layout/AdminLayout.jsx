@@ -262,7 +262,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 stroke-gray-600 dark:stroke-gray-300"
+                  className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -276,7 +276,23 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className="w-full flex items-center">
+          <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
+            onMouseEnter={() => setMenuTooltip("Point of sale")}
+            onMouseLeave={() => setMenuTooltip(null)}>
+            {menuTooltip === "Point of sale" && !sidebarMenuOpen && (
+              <div>
+                <div
+                  className={`left-[31px] top-[5px] absolute z-[1000]`}
+                >
+                  <IoMdArrowDropleft className="text-gray-50 dark:text-gray-650 text-[24px]" />
+                </div>
+                <div
+                  className={`left-[46px] -top-[1px] absolute flex px-[10px] py-[6px] bg-gray-50 dark:bg-gray-650 rounded-[4px] z-[999] bg-opacity-80 dark:bg-opacity-80`}
+                >
+                  <div className="w-[86px] text-[14px] text-gray-700 dark:text-gray-200">Point of sale</div>
+                </div>
+              </div>
+            )}
             <NavLink
               to={"/point-of-sale"}
               className={({ isActive }) =>
@@ -286,14 +302,14 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
                 " w-full h-[38px] lg:h-[35px] flex items-center px-2 rounded-[5px]"
               }
             >
-              <div className="w-full flex">
+              <div className="flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 stroke-gray-600 dark:stroke-gray-300"
+                  className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -301,8 +317,9 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
                     d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"
                   />
                 </svg>
-
-                <div className="ml-3 dark:text-gray-300">Point of sale</div>
+                <div className="ml-3 dark:text-gray-300">
+                  {sidebarMenuOpen && <div>Point of sale</div>}
+                </div>
               </div>
             </NavLink>
           </div>
@@ -636,7 +653,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 stroke-gray-600 dark:stroke-gray-300"
+                  className="w-[23px] h-[23px] stroke-gray-600 dark:stroke-gray-300"
                 >
                   <path
                     strokeLinecap="round"
