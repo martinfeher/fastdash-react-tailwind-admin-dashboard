@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { connect } from "react-redux";
+
 import './styles/globals.css';
 import './styles/index.css';
 
@@ -16,11 +18,22 @@ import Newsletter from "./pages/Newsletter";
 import AccountSettings from "./pages/AccountSettings";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-const App = () => {
+const App = ({global:{darkMode}}) => {
+
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+    },
+  });
+
 
   return (
     <BrowserRouter>
+     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Routes>
         <Route path="/" element={<Analytics />} />
         <Route path="/profile" element={<Profile />} />
@@ -36,8 +49,13 @@ const App = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
+      </ThemeProvider>
   </BrowserRouter>
   )
 }
 
-export default App
+const mapStateToProps = (state) => ({
+  global: state.global,
+});
+
+export default connect(mapStateToProps, {})(App);

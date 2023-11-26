@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
-import useWindowDimensions from "../utils/useWindowDimensions";
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import useClickOutside from "../utils/useClickOutside";
 import format from "date-fns/format"
 
 import {
@@ -17,7 +15,6 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
 
     const titleRef = useRef(null)
     const calendarEventModalRef = useRef(null)
-    const { height, width } = useWindowDimensions()
 
     const [title, setTitle] = useState(displayCalendarEvent.title);
     const [titleOriginal, setTitleOriginal] = useState(displayCalendarEvent.title);
@@ -47,12 +44,6 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
       document.removeEventListener("keydown", handleKeyDown, false);
     };
   }, [handleKeyDown]);
-
-  // const closeModal = useCallback(() => {
-  //   setOpenCalendarEventModal(false);
-  //   });
-  // useClickOutside(calendarEventModalRef, closeModal);
-
 
   const clickUpdateEvent = () => {
 
@@ -101,21 +92,21 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
         <div className="mt-[20px] w-full">
           {displayCalendarEvent !== null && (
             <div>
-              <div className="mb-[16px] text-[18px]">Edit event</div>
+              <div className="mb-[16px] dark:text-gray-300 text-[18px]">Edit event</div>
               <div className="text-[15px] text-gray-700">
                 <div className="mb-[12px] flex flex-col">
-                  <label>Title:</label>
+                  <label className="dark:text-gray-350">Title:</label>
                   <input
                     ref={titleRef}
                     type="text"
                     value={title}
                     name="title"
                     onChange={(e) => setTitle(e.target.value)}
-                    className="px-[10px] h-[38px] border border-gray-350 hover:border-gray-500 rounded-[5px] outline-none"
+                    className="px-[10px] h-[38px] dark:bg-gray-800 dark:text-gray-300 border border-gray-350 hover:border-gray-500 rounded-[5px] outline-none"
                   />
                 </div>
                 <div className="mb-[12px] flex flex-col">
-                  <label>Start date:</label>
+                  <label className="dark:text-gray-350">Start date:</label>
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <DateTimePicker 
                     id="dateTimePickerStartDate"
@@ -129,7 +120,7 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
                 </div>
 
                 <div className="mb-[12px] flex flex-col">
-                  <label>End date:</label>
+                  <label className="dark:text-gray-350">End date:</label>
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <DateTimePicker 
                     id="dateTimePickerEndDate"
@@ -143,13 +134,13 @@ const ModalCalendarEvent = ({ displayCalendarEvent, setOpenCalendarEventModal, s
                 </div>
 
                 <div className="mb-[12px] flex flex-col">
-                  <label>Description:</label>
+                  <label className="dark:text-gray-350">Description:</label>
                   <textarea
                     type="text"
                     value={description}
                     name="description"
                     onChange={(e) => setDescription(e.target.value)}
-                    className="px-[10px] py-[4px] min-h-[78px] text-[14px] border border-gray-350 hover:border-gray-500 rounded-[5px] outline-none"
+                    className="px-[10px] py-[4px] min-h-[78px] dark:bg-gray-800 dark:text-gray-300 text-[14px] border border-gray-350 hover:border-gray-500 rounded-[5px] outline-none"
                   />
                 </div>
                 {/* <div>{displayCalendarEvent?.allDay && "all day"}</div> */}
