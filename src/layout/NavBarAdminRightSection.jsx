@@ -15,25 +15,18 @@ import {
 
 const NavBarAdminRightSection = ({ setDarkMode, global: {darkMode} }) => {
 
-  const { pathname } = useLocation();
-  console.log(pathname)
-  console.log(pathname)
-  // const isCalendar = matchPath(pathname, { path: "/calendar", exact: false });
   
     return (
         <div className="flex">
-        { pathname !== '/calendar' && (
-            <div className="group w-[34px] h-[34px] flex items-center justify-center bg-slate-150 hover:bg-blue-100 dark:bg-slate-600 dark:hover:bg-slate-500 rounded-full cursor-pointer"
-            onClick={()=> setDarkMode(!darkMode)}
+          <div className="group w-[34px] h-[34px] flex items-center justify-center bg-slate-150 hover:bg-blue-100 dark:bg-slate-600 dark:hover:bg-slate-500 rounded-full cursor-pointer"
+          onClick={()=> setDarkMode(!darkMode)}
           > 
-           {darkMode ? 
-            (<MdOutlineLightMode className="text-gray-450 dark:text-gray-350 group-hover:dark:text-gray-200 text-[21px] transition duration-200 ease-out" />)
-            :
-            (<MdOutlineDarkMode className="text-gray-450 dark:text-gray-350 group-hover:dark:text-gray-200 text-[21px] transition duration-200 ease-out" />)
-            }
-            </div>
-          )
-        }
+          {darkMode ? 
+          (<MdOutlineLightMode className="text-gray-450 dark:text-gray-350 group-hover:dark:text-gray-200 text-[21px] transition duration-200 ease-out" />)
+          :
+          (<MdOutlineDarkMode className="text-gray-450 dark:text-gray-350 group-hover:dark:text-gray-200 text-[21px] transition duration-200 ease-out" />)
+          }
+          </div>
         <DropdownAnimation
           button={
             <div className="group ml-[7px] w-[34px] h-[34px] flex items-center justify-center bg-slate-150 hover:bg-blue-100 dark:bg-slate-600 dark:hover:bg-slate-500 rounded-full cursor-pointer">

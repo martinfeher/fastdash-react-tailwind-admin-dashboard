@@ -43,13 +43,12 @@ useEffect(() => {
         <div className="bg-brandLight dark:bg-brandDarkPrimary">
         {calendarEventModalOpen && <ModalCalendarEvent displayCalendarEvent={displayCalendarEvent} />}
           <AdminLayout>
-            <main className="p-4 w-full">
+            <main className="p-4 w-full dark:text-gray-300">
               <FullCalendar
                 ref = {calendarEventsRef}
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
                 events={calendarEvents}
-                // events={deferredQuery}
                 eventClick={handleEventClick}
               />
             </main>

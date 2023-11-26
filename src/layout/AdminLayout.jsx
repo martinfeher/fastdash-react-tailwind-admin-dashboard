@@ -276,7 +276,6 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          {!darkMode && (
             <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
             onMouseEnter={() => setMenuTooltip("Calendar")}
             onMouseLeave={() => setMenuTooltip(null)}>
@@ -324,8 +323,6 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
                 </div>
               </NavLink>
             </div>
-          )}
-
           <div className="pl-2 mt-[6px] text-gray-500">
             {sidebarMenuOpen && <div>FORMS</div>}
           </div>

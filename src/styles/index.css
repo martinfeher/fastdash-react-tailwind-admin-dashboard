@@ -40,6 +40,11 @@ h5 {
     color: #454f5e !important;
 }
 
+.dark .fc-button {
+    background: #454f5e !important;
+    color: #dadfe2 !important;
+}
+
 .fc-today-button {
     color: #000 !important;
 }
@@ -55,5 +60,10 @@ h5 {
 }
 }
 
+.dark .fc-day-other .fc-daygrid-day-number {
+    color: #FFF;
+    /* color: #d1d5db; */
+    /* color: #c1c5cb; */
+}
 
 /* End Calendar */
