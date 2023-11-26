@@ -323,7 +323,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
                 </div>
               </NavLink>
             </div>
-          <div className="pl-2 mt-[6px] text-gray-500">
+          <div className="pl-2 mt-[6px] text-gray-500 dark:text-gray-400">
             {sidebarMenuOpen && <div>FORMS</div>}
           </div>
           <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
@@ -421,7 +421,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className="pl-2 mt-[6px] text-gray-500">
+          <div className="pl-2 mt-[6px] text-gray-500 dark:text-gray-400">
             {sidebarMenuOpen && <div>COMPONENTS</div>}
           </div>
           <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
@@ -567,7 +567,7 @@ const AdminLayout = ({children, setOpenSidebarMenu, global: {sidebarMenuOpen, si
               </div>
             </NavLink>
           </div>
-          <div className="mt-[6px] pl-2 text-gray-500">
+          <div className="mt-[6px] pl-2 text-gray-500 dark:text-gray-400">
             {sidebarMenuOpen && <div>AUTHENTICATION</div>}
           </div>
           <div className={`${sidebarMenuOpen ? "w-full" : "w-[40px]"} relative`}
