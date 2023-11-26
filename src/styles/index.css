@@ -29,7 +29,9 @@ h5 {
     background-color: #303c34;
 }
 
+
 /* Calendar */
+
 .dateTimePicker .MuiInputBase-input {
     padding: 8px !important;
     font-size: 15px !important;
@@ -47,12 +49,12 @@ h5 {
     .fc-button-group {
         margin-left: 0 !important;
     }
-  }
+}
 
 @media screen and (max-width: 400px) {
-.fc-button-group {
-    margin-top: 4px !important;
-}
+    .fc-button-group {
+        margin-top: 4px !important;
+    }
 }
 
 
